@@ -55,44 +55,22 @@
             <div class="col-sm-10 text-left">
                 <h1 class="text-center">Welcome</h1>
 
-                <div id="forjobs">
-                    {{#each}}
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="text-right">Available Job</h5>
-
-                        </div>
-
-                        <div class="row">
-
-                            <div class="col-sm-2 my-block-center">
-                                <a href="https://placeholder.com">
-                                    <img src="http://via.placeholder.com/150x150">
-                                </a>
-                            </div>
-                            <div class="col-sm-9 card-body">
-                                <h5 class="card-title text-center">{{this.title}}</h5>
-                                <p class="card-text">{{this.description}}</p>
-                                <p class="card-text">Price:
-                                    <span id="cost">{{this.cost}}</span>
-                                </p>
-                                <p class="card-text">Price:
-                                    <span id="address">{{this.address}}</span>
-                                </p>
-                                <p class="text-right">
-                                    <a href="#" class="btn btn-success details" id="{{this.id}}">Details</a>
-                                    {{#if this.completed}}
-                                    <a href="#" class="btn btn-success apply-job" id="{{this.id}}">Apply for this job</a>
-                                    {{else}}
-                                    <a href="#" class="btn btn-success" disabled>Done</a>
-                                    {{/if}}
-                                </p>
-                            </div>
-                        </div>
-
+                <form>
+                    <div class="form-group">
+                      <label for="email">Email address:</label>
+                      <input type="email" class="form-control" id="email">
                     </div>
-                    {{/each}}
-                </div>
+                    <div class="form-group">
+                      <label for="pwd">Password:</label>
+                      <input type="password" class="form-control" id="pwd">
+                    </div>
+                    <div class="form-group form-check">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox"> Remember me
+                      </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
             </div>
         </div>
     </div>
