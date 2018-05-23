@@ -6,7 +6,7 @@ module.exports = function(app) {
     db.Job.findAll({}).then(function(data) {
       let hbsObject = {
         jobs: data
-      }
+      };
       res.render('index', hbsObject);
       console.log(hbsObject);
     });
