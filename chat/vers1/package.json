@@ -1,0 +1,25 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "description": "chat feature to be implemented into the creationStation Project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SpaceTrev/CreativeList.git"
+  },
+  "author": "SpaceTrev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SpaceTrev/CreativeList/issues"
+  },
+  "homepage": "https://github.com/SpaceTrev/CreativeList#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "http": "0.0.0",
+    "path": "^0.12.7",
+    "socket.io": "^2.1.1"
+  }
+}

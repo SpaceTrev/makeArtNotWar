@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Chat Feature</title>
+</head>
+
+<body>
+    <h2>Chat Feature For Creation Station</h2>
+
+    <ul id='messages'></ul>
+
+    <form id='chatInput'>
+        <input type="text">
+        <button>Send</button>
+    </form>
+
+    <script src="/socket.io/socket.io.js"></script>
+    
+    <script>
+        let socket = io();
+        document.getElementByTagName('form')[0].addEventListener('submit', (event) => {
+            event.preventDefault();
+        });
+        document.getElementByTagName('button')[0].onclick = () => {
+            let msg = document.getElementByTagName('input')[0].value;
+            socket.emit('client emit', msg);
+        };
+        socket.on('server emit', (msg) => {
+            let messages = document.getElementById('messages');
+            let nLI = document.createElement('li');
+            nLI.innerHTML = msg;
+            messages.appendChild(nLI);
+        })
+
+    </script>
+</body>
+
+
+</html>
