@@ -4,11 +4,7 @@ module.exports = function(app) {
   app.get("/api/jobs", function(req, res) {
     // 1. Add a join to include all of each Job's Posts
     db.Job.findAll({}).then(function(data) {
-      let hbsObject = {
-        jobs: data
-      };
-      res.render('index', hbsObject);
-      console.log(hbsObject);
+      res.json(data);
     });
   });
 
