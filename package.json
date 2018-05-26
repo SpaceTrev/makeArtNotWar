@@ -21,6 +21,19 @@
     "nightmare": "^3.0.1",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
+<<<<<<< HEAD
     "sequelize": "^4.37.8"
   }
+=======
+    "sequelize": "^4.37.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SpaceTrev/makeArtNotWar.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SpaceTrev/makeArtNotWar/issues"
+  },
+  "homepage": "https://github.com/SpaceTrev/makeArtNotWar#readme"
+>>>>>>> 7ed82892802f4fbcfa730f2ec9184be042077ba6
 }
