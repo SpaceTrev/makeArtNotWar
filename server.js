@@ -9,7 +9,7 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(session({ secret: 'sergeisucksergeisuckseggs', resave: true, saveUninitialized: true }));
+app.use(session({ secret: 'trevlazyasshole', resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 

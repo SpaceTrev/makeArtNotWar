@@ -17,7 +17,7 @@ module.exports = function(app) {
       });
     });
   
-    // cms route loads cms.html
+  
     app.get("/post",  isLoggedIn,function(req, res) {
       let hbsObject = {
         user:req.user
@@ -26,47 +26,60 @@ module.exports = function(app) {
     });
     
     app.post("/post", function(req, res) {
-      console.log(req.body)
-      db.Job.create(req.body).then(function(dbJob) {
-        res.json(dbJob);
-      }).catch(function(err){
-        console.log(err);
-        res.json(err);
-      });
+      if (req.user){
+        db.Job.create(req.body).then(function(dbJob) {
+          res.json(dbJob);
+        }).catch(function(err){
+          console.log(err);
+          res.json(err);
+        });
+      } else {
+        res.render('login');
+      }
+    
     });
 
     app.get("/myjobs", function(req, res) {
-      db.Job.findAll({
-        where: {
-          UserId: req.user.id
-        }
-      }).then(function(data) {
-        let hbsObject = {
-          jobs: data,
-          user:req.user
-        };
-        res.render('index', hbsObject);
-        
-      });
+
+      if (req.user){
+        db.Job.findAll({
+          where: {
+            UserId: req.user.id
+          }
+        }).then(function(data) {
+          let hbsObject = {
+            jobs: data,
+            user:req.user
+          };
+          res.render('index', hbsObject);
+          
+        });
+
+      } else {
+        res.render('login');
+      }
+      
     });
 
     app.get("/donejobs", function(req, res) {
-      db.Job.findAll({
-        where: {
-          assingToId: req.user.id
-        }
-      }).then(function(data) {
-        let hbsObject = {
-          jobs: data,
-          user:req.user
-        };
-        res.render('index', hbsObject);
-        
-      });
-    });
-    // job route loads job.html
-    app.get("/job", function(req, res) {
-      res.sendFile(path.join(__dirname, "../public/job.html"));
+
+      if (req.user) {
+        db.Job.findAll({
+          where: {
+            assingToId: req.user.id
+          }
+        }).then(function(data) {
+          let hbsObject = {
+            jobs: data,
+            user:req.user
+          };
+          res.render('index', hbsObject);
+          
+        });
+      }else {
+        res.render('login');
+      }
+      
     });
     
 
