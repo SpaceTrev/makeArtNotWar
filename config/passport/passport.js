@@ -69,9 +69,9 @@ module.exports = (passport, user) => {
 
                             password: userPassword,
 
-                            first_name: req.body.firstname,
+                            first_name: req.body.first_name,
 
-                            last_name: req.body.lastname
+                            last_name: req.body.last_name
 
                         };
 

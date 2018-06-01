@@ -12,14 +12,15 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/jobs/:id", function(req, res) {
+  app.get("/api/jobs/:id",isLoggedIn, function(req, res) {
     // 2; Add a join to include all of the Job's Posts here
     db.Job.findOne({
       where: {
         id: req.params.id
       }
     }).then(function(dbJob) {
-      res.json(dbJob);
+      console.log(dbJob)
+      res.render('jobinfo',{data:dbJob,user:req.user});
     });
   });
 
@@ -41,5 +42,15 @@ module.exports = function(app) {
       res.json(dbJob);
     });
   });
+
+  function isLoggedIn(req, res, next) {
+
+    if (req.isAuthenticated())
+
+        return next();
+
+    res.redirect('/signin');
+
+}
 
 };

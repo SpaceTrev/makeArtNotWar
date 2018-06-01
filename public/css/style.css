@@ -1,8 +1,17 @@
  /* Remove the navbar's default margin-bottom and rounded borders */
 
+ body {
+     font-family: Work Sans;
+ }
+ 
  .navbar {
     margin-bottom: 0;
     border-radius: 0;
+}
+
+.navbar-brand {
+    font-family: Indie Flower;
+    font-size: 24px;
 }
 
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
@@ -14,17 +23,16 @@
 /* Set gray background color and 100% height */
 
 .sidenav {
+    margin-top:20px;
     padding-top: 20px;
     background-color: #f1f1f1;
-    height: 100%;
+    min-height: calc(100vh - 50px);
 }
 
 /* Set black background color, white text and some padding */
 
-footer {
-    background-color: #555;
-    color: white;
-    padding: 15px;
+.card {
+    margin-bottom: 10px;
 }
 
 .apply-job {
@@ -37,6 +45,16 @@ footer {
     display: block;
     margin: auto;
 }
+
+#forjobs {
+    margin-top: 20px;
+    width: auto;
+    height: calc(100vh - 50px);
+    overflow-y: scroll;
+    overflow-x:hidden;
+}
+
+
 
 /* On small screens, set height to 'auto' for sidenav and grid */
 

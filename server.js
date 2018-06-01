@@ -21,9 +21,7 @@ const exphbs = require('express-handlebars');
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// app.get('/', (req, res) => {
-//   res.send('Welcome to Passport with Sequelize');
-// });
+require('./routes/auth-routes.js')(app, passport);
 require('./config/passport/passport.js')(passport, db.User);
 
 // Routes
@@ -31,7 +29,8 @@ require('./config/passport/passport.js')(passport, db.User);
 require("./routes/html-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
 require("./routes/job-api-routes.js")(app);
-require("./routes/auth-routes.js")(app, passport);
+
+
 db.sequelize.sync().then(function () {
   app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);

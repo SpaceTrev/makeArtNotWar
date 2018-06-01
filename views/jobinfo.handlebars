@@ -1,43 +1,10 @@
-<nav class="navbar navbar-dark navbar-expand-md bg-success justify-content-between">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-nav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse dual-nav w-100">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link pl-0" href="/">Home <span class="sr-only">Home</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/contact">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/help">Help</a>
-                        </li>
-                    </ul>
-                </div>
-                <a href="/" class="navbar-brand mx-auto d-block text-center w-100">Creation Station</a>
-                <div class="navbar-collapse collapse dual-nav w-100">
-                    <ul class="nav navbar-nav ml-auto">
-                        {{#if user}}
-
-                        <li class="nav-item"><span class="nav-link" disabled>Hi, {{this.username}}</span></li>
-                         <li class="nav-item"><a class="nav-link" href="/signout">Sign out</a></li>
-                         {{else}}
-                         <li class="nav-item"><a class="nav-link" href="/signin">Sign in</a></li>
-                         {{/if}}
-                    </ul>
-                </div>
-            </nav>
 
     <div class="container-fluid text-center">
         <div class="row content">
             <div class="col-sm-2 sidenav">
                 
                 <p>
-                    <a href="/all">All jobs</a>
+                    <a href="/">All jobs</a>
                 </p>
                 <p>
                     <a href="/post">Post job</a>
@@ -57,11 +24,11 @@
 
                 <div id="jobdesc">
 
-                                <div> Title : <span>{{this.title}}</span> </div>
-                                <div>Was created on : <span>{{this.createdOn}}</span> </div>
-                                <div> Address : <span>{{this.address}}</span> </div>
-                                <div>Description : <span>{{this.description}}</span></div>
-                                <div>Cost : <span>{{this.cost}}</span></div>
+                                <div> Title : <span>{{this.data.title}}</span> </div>
+                                <div>Was created on : <span>{{this.data.createdAt}}</span> </div>
+                                <div> Address : <span>{{this.data.address}}</span> </div>
+                                <div>Description : <span>{{this.data.description}}</span></div>
+                                <div>Cost : <span>{{this.data.cost}}</span></div>
                                 <div> Photos : <span></span></div>
    
                 </div>
