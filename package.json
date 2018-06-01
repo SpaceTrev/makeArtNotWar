@@ -23,6 +23,9 @@
     "passport-local": "^1.0.0",
     "sequelize": "^4.37.9"
   },
+  "engines": {
+    "node": "9.10.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SpaceTrev/makeArtNotWar.git"
