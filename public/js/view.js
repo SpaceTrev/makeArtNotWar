@@ -5,13 +5,15 @@ $( document ).ready(function(){
         let title = $("#title").val().trim();
         let description = $("#description").val().trim();
         let cost = parseInt($("#cost").val().trim());
-
+        let address = $("#address").val().trim();
+        let userid = $(this).attr("data-id");
+        
         var newJob = {
             title:title,
             description:description,
             cost:cost,
-            address:"blabla",
-            UserId:1
+            address:address,
+            UserId:userid
         }
 
         $.post("/post", newJob, function(result){
