@@ -34,6 +34,36 @@ module.exports = function(app) {
         res.json(err);
       });
     });
+
+    app.get("/myjobs", function(req, res) {
+      db.Job.findAll({
+        where: {
+          UserId: req.user.id
+        }
+      }).then(function(data) {
+        let hbsObject = {
+          jobs: data,
+          user:req.user
+        };
+        res.render('index', hbsObject);
+        
+      });
+    });
+
+    app.get("/donejobs", function(req, res) {
+      db.Job.findAll({
+        where: {
+          assingToId: req.user.id
+        }
+      }).then(function(data) {
+        let hbsObject = {
+          jobs: data,
+          user:req.user
+        };
+        res.render('index', hbsObject);
+        
+      });
+    });
     // job route loads job.html
     app.get("/job", function(req, res) {
       res.sendFile(path.join(__dirname, "../public/job.html"));
