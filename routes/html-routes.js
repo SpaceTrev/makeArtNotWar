@@ -9,7 +9,8 @@ module.exports = function(app) {
     app.get("/", function(req, res) {
       db.Job.findAll({}).then(function(data) {
         let hbsObject = {
-          jobs: data
+          jobs: data,
+          user:req.user
         };
         res.render('index', hbsObject);
         
@@ -17,8 +18,11 @@ module.exports = function(app) {
     });
   
     // cms route loads cms.html
-    app.get("/post", function(req, res) {
-      res.render('post');
+    app.get("/post",  isLoggedIn,function(req, res) {
+      let hbsObject = {
+        user:req.user
+      };
+      res.render('post', hbsObject);
     });
     
     app.post("/post", function(req, res) {
@@ -35,4 +39,15 @@ module.exports = function(app) {
       res.sendFile(path.join(__dirname, "../public/job.html"));
     });
     
+
+    function isLoggedIn(req, res, next) {
+
+      if (req.isAuthenticated())
+
+          return next();
+
+      res.redirect('/signin');
+
+  }
+
   };

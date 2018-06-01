@@ -9,7 +9,8 @@ module.exports = {
     dashboard: (req, res) => {
         db.Job.findAll({}).then(function(data) {
             let hbsObject = {
-              jobs: data
+              jobs: data,
+              user:req.user
             };
             res.render('index', hbsObject);
             
