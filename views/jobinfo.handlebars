@@ -1,37 +1,37 @@
+<div class="container-fluid text-center">
+    <div class="row content">
+        <div class="col-sm-2 sidenav">
 
-    <div class="container-fluid text-center">
-        <div class="row content">
-            <div class="col-sm-2 sidenav">
-                
-                <p>
-                    <a href="/">All jobs</a>
-                </p>
-                <p>
-                    <a href="/post">Post job</a>
-                </p>
+            <p>
+                <a href="/">All jobs</a>
+            </p>
+            <p>
+                <a href="/post">Post job</a>
+            </p>
 
-                {{#if user}}
-                <p>
-                    <a href="/myjobs">My jobs</a>
-                </p>
-                <p>
-                    <a href="/donejobs">Done jobs</a>
-                </p>
-                {{/if}}
-            </div>
-            <div class="col-sm-10 text-left">
-                <h1 class="text-center">Welcome</h1>
-
-                <div id="jobdesc">
-
-                                <div> Title : <span>{{this.data.title}}</span> </div>
-                                <div>Was created on : <span>{{this.data.createdAt}}</span> </div>
-                                <div> Address : <span>{{this.data.address}}</span> </div>
-                                <div>Description : <span>{{this.data.description}}</span></div>
-                                <div>Cost : <span>{{this.data.cost}}</span></div>
-                                <div> Photos : <span></span></div>
-   
+            {{#if user}}
+            <p>
+                <a href="/myjobs">My jobs</a>
+            </p>
+            <p>
+                <a href="/donejobs">Done jobs</a>
+            </p>
+            {{/if}}
+        </div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-6">
+            <section id="jobdesc">
+                <div class="card mt-4">
+                    <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">
+                    <div class="card-body">
+                        <h3 class="card-title">{{this.data.title}}</h3>
+                        <h4>${{this.data.cost}}</h4>
+                        <p class="card-text">{{this.data.description}}</p>
+                        <p class="card-text">Location: {{this.data.address}}</p>
+                        <p class="card-text">Posted on: {{this.data.createdAt}}</p>
+                    </div>
                 </div>
-            </div>
+            </section>
         </div>
     </div>
+</div>
