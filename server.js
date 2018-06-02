@@ -6,9 +6,11 @@ const passport = require('passport');
 const session = require('express-session');
 const flash = require('connect-flash');
 const env = require('dotenv').load();
+
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
 
 // Express-messages Middleware
 app.use(require('connect-flash')());
@@ -17,7 +19,8 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use(session({ secret: 'sergeisucksergeisuckseggs', resave: true, saveUninitialized: true }));
+app.use(session({ secret: 'trevlazyasshole', resave: true, saveUninitialized: true }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -37,6 +40,8 @@ require('./config/passport/passport.js')(passport, db.User);
 require("./routes/html-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
 require("./routes/job-api-routes.js")(app);
+require("./routes/contact-routes.js")(app);
+require("./routes/welcome-routes.js")(app);
 
 
 db.sequelize.sync().then(function () {
