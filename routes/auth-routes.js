@@ -17,7 +17,10 @@ module.exports = (app, passport) => {
     ));
 
     app.get('/contact', (req, res) => {
-        res.render('contact');
+        let hbsObject = {
+            user:req.user
+          };
+        res.render('contact', hbsObject);
       });
 
 

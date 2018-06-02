@@ -7,7 +7,8 @@ module.exports = {
         res.render('login');
     },
     dashboard: (req, res) => {
-        db.Job.findAll({}).then(function(data) {
+        db.Job.findAll({include: [db.User]}).then(function(data) {
+            console.log(data)
             let hbsObject = {
               jobs: data,
               user:req.user
