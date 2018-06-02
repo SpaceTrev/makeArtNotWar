@@ -7,6 +7,7 @@ module.exports = (app, passport) => {
     app.get('/logout', authController.logout);
     app.get('/signup', authController.signup);
     app.get('/signin', authController.signin);
+    
     app.post('/signup', passport.authenticate('local-signup', {
         successRedirect: '/',
 
@@ -14,6 +15,12 @@ module.exports = (app, passport) => {
     }
 
     ));
+
+    app.get('/contact', (req, res) => {
+        res.render('contact');
+      });
+
+
     app.post('/signin', passport.authenticate('local-signin', {
         successRedirect: '/',
 

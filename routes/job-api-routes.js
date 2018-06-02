@@ -19,7 +19,7 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(function(dbJob) {
-      console.log(dbJob)
+      // console.log(dbJob)
       res.render('jobinfo',{data:dbJob,user:req.user});
     });
   });

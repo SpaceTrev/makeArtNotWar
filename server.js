@@ -5,6 +5,7 @@ const app = express();
 const passport = require('passport');
 const session = require('express-session');
 const env = require('dotenv').load();
+
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -29,6 +30,8 @@ require('./config/passport/passport.js')(passport, db.User);
 require("./routes/html-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
 require("./routes/job-api-routes.js")(app);
+require("./routes/contact-routes.js")(app);
+require("./routes/welcome-routes.js")(app);
 
 
 db.sequelize.sync().then(function () {
