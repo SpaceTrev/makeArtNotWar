@@ -19,13 +19,10 @@
     "mysql": "^2.15.0",
     "mysql2": "^1.5.3",
     "nightmare": "^3.0.1",
-    "nodemailer": "^4.6.5",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "sequelize": "^4.37.9"
-  },
-  "engines": {
-    "node": "9.10.1"
+    "sequelize": "^4.37.9",
+    "nodemailer":"4.6.5"
   },
   "repository": {
     "type": "git",
@@ -34,6 +31,5 @@
   "bugs": {
     "url": "https://github.com/SpaceTrev/makeArtNotWar/issues"
   },
-  "homepage": "https://github.com/SpaceTrev/makeArtNotWar#readme",
-  "devDependencies": {}
+  "homepage": "https://github.com/SpaceTrev/makeArtNotWar#readme"
 }

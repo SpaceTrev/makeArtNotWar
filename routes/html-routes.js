@@ -1,17 +1,19 @@
 // Routes
 // =============================================================
-const db = require("../models/index.js");
+const db = require("../models");
 module.exports = function(app) {
 
     // Each of the below routes just handles the HTML page that the user gets sent to.
   
     // index route loads view.html
     app.get("/", function(req, res) {
-      db.Job.findAll({}).then(function(data) {
+      db.Job.findAll({include:[db.User]}).then(function(data) {
         let hbsObject = {
           jobs: data,
           user:req.user
         };
+
+        console.log(hbsObject)
         res.render('index', hbsObject);
         
       });
