@@ -4,13 +4,23 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 const passport = require('passport');
 const session = require('express-session');
+const flash = require('connect-flash');
 const env = require('dotenv').load();
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+
+// Express-messages Middleware
+app.use(require('connect-flash')());
+app.use(function (req, res, next) {
+  res.locals.messages = require('express-messages')(req, res);
+  next();
+});
+
 app.use(session({ secret: 'trevlazyasshole', resave: true, saveUninitialized: true }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 
