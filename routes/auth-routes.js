@@ -12,7 +12,7 @@ module.exports = (app, passport) => {
         successRedirect: '/',
 
         failureRedirect: '/signup'
-    }
+    }, 
 
     ));
 

@@ -13,8 +13,6 @@ app.post('/send', (req, res) => {
         <li>Email: ${req.body.email}</li>
         <li>Phone: ${req.body.phone}</li>
       </ul>
-      <h3>Message</h3>
-      <p>${req.body.message}</p>
     `;
   
     // create reusable transporter object using the default SMTP transport
