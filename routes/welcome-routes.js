@@ -1,10 +1,13 @@
 const db = require("../models");
 const nodemailer = require('nodemailer');
+const userEmail = "";
 
 module.exports = function(app) {
 
-app.post('/signup', (req, res) => {
-    console.log(req);
+app.post('/welcome', (req, res) => {
+
+    userEmail = req.body.email;
+    
     const output = `
     <p>Welcome ${req.body.name}</p>
 
@@ -42,7 +45,7 @@ app.post('/signup', (req, res) => {
     // setup email data with unicode symbols
     let mailOptions = {
         from: '"Creation Station" <contactemail@email.com>', // sender address
-        to: 'adam.webb22@icloud.com', // list of receivers
+        to: userEmail, // list of receivers
         subject: 'Welcome', // Subject line
         text: 'Hello world?', // plain text body
         html: output // html body
