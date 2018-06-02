@@ -52,8 +52,11 @@
                                     {{else}}
                                     
                                     <a href="#" class="btn btn-success apply-job" id="{{this.id}}">Apply for this job</a>
-                                    {{/if}}
+                                    
                                 </p>
+
+                                <p class="text-right"> Was created by {{User.last_name}} {{User.first_name}} {{this.createdAt}}</p>
+                                {{/if}}
                             </div>
                         </div>
 
